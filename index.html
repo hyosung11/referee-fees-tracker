@@ -3,21 +3,11 @@
   <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="/js/app.js"></script>
     <title>Referee Fees Tracker</title>
   </head>
-  <style>
-    img {
-      max-width: 100px;
-      display: inline-block;
-    }
-    dl {
-      display: inline-block;
-      vertical-align: top;
-    }
-  </style>
-  <body ng-controller = "MainController as ctrl">
-    <h1>{{ctrl.hello}}</h1>
+  <body ng-controller="MainController as ctrl">
+    <h1>Referee Fees Tracker</h1>
     <div ng-repeat="game in ctrl.games">
       <dl>
         <dt>{{game.date}}</dt>
