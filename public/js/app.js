@@ -69,4 +69,4 @@ app.controller('MainController', function() {
       note: 'worked with Scott Riker'
     }
   ];
-})
+}) // closes app controller
