@@ -20,6 +20,6 @@ router.post('/', (req, res) => {
     })
   })
 
-// push a CREATED game to a user's gameList
+module.exports = router
 
-//
+// push a CREATED game to a user's gameList

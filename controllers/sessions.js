@@ -24,6 +24,12 @@ router.post('/', (req, res) => {
             message: 'login failed'
           })
         }
+      } else {
+        console.log('hit the else statement => login failed')
+        res.status(401).json({
+          status: 401,
+          message: 'login failed'
+        })
       }
     }
   })
@@ -40,4 +46,4 @@ router.delete('/', (req, res) => {
 })
 
 // export the sessions router
-module.exports = router 
+module.exports = router

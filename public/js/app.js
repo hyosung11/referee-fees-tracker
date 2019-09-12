@@ -6,56 +6,75 @@ const app = angular.module('RefereeApp', [])
 // app.controller is the controller for authorization
 app.controller('AuthController', ['$http', function($http) {
   const controller = this
-  this.createUser = () => {
+  this.createUser = function() {
     $http({
       method: 'POST',
       url: '/users',
       data: {
-        username: this.username,
-        password: this.password
+        username:this.username,
+        password:this.password
       }
-    }).then (response) => {
-      console.log(response)
-    }, () => {
-      console.log('error')
-    }
+    }).then (
+      function(response) {
+        controller.username = null;
+        controller.password = null;
+        console.log(response);
+      },
+      function(error) {
+        console.log(error);
+      }
+    )
   }
 
-  this.logIn = () => {
+  this.logIn = function() {
     $http({
-      method: 'POST',
-      url: '/sessions'
+      method:'POST',
+      url:'/sessions',
       data: {
-        username: this.username,
-        password: this.password
+        username:this.username,
+        password:this.password
       }
-    }).then (response) => {
+    }).then(
+      function(response){
         console.log(response)
-    }, () => {
-        console.log('error')
-    }
+        controller.username = null
+        controller.password = null
+        controller.goApp()
+      },
+      function(error){
+        console.log(error);
+      }
+    )
   }
 
-  this.goApp = () => {
+  this.logOut = function() {
     $http({
-      method: 'GET',
-      url: '/app'
-    }).then (response) => {
-        controller.loggedInUsername = response.data.username
-    }, () => {
-        console.log('error')
-    }
+      method:'DELETE',
+      url:'/sessions'
+    }).then(
+      function(response){
+        console.log(response)
+        controller.loggedInUsername = null
+      },
+      function(error){
+        console.log(error)
+      }
+    )
   }
 
-  this.logOut = () => {
+  this.goApp = function() {
+    console.log('getting user info')
     $http({
-      method: 'DELETE',
-      url '/sessions'
-    }).then (response) => {
-        console.log(response)
-    }, (error) => {
-        console.log();
-    }
+      method:'GET',
+      url:'/app'
+    }).then(
+      function(response) {
+        controller.loggedInUsername = response.data.username;
+      },
+      function(error){
+        console.log(error);
+      }
+    )
   }
 }])
 
