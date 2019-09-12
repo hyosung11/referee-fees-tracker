@@ -6,7 +6,31 @@
     <script src="app.js"></script>
     <title>Referee Fees Tracker</title>
   </head>
+  <style>
+    img {
+      max-width: 100px;
+      display: inline-block;
+    }
+    dl {
+      display: inline-block;
+      vertical-align: top;
+    }
+  </style>
   <body ng-controller = "MainController as ctrl">
     <h1>{{ctrl.hello}}</h1>
+    <div ng-repeat="game in ctrl.games">
+      <dl>
+        <dt>{{game.date}}</dt>
+        <dt>{{game.time}}</dt>
+        <dt>{{game.location}}</dt>
+        <dt>{{game.competition}}</dt>
+        <dt>{{game.home}}</dt>
+        <dt>{{game.away}}</dt>
+        <dt>{{game.fee}}</dt>
+        <dt>{{game.payment}}</dt>
+        <dt>{{game.status}}</dt>
+        <dt>{{game.note}}</dt>
+      </dl>
+    </div>
   </body>
 </html>
