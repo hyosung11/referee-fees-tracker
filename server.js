@@ -4,6 +4,7 @@
 const express = require('express')
 const app = express()
 
+require('dotenv').config()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const db = mongoose.connection
@@ -18,8 +19,16 @@ app.use(session({
   saveUninitialized: false
 }))
 
+// Database
+const FINAL_PROJECT_DB = process.env.FINAL_PROJECT_DB
+
+// Fix Deprecation Warnings from Mongoose
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/referee', {useNewUrlParser: true})
+console.log(FINAL_PROJECT_DB)
+mongoose.connect(FINAL_PROJECT_DB, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // announce that the connection has been opened
 mongoose.connection.once('open', () => {
