@@ -26,6 +26,22 @@ mongoose.connection.once('open', () => {
   console.log('connected to mongo ...')
 })
 
+// user session route
+app.get('/app', (req, res) => {
+  if(req.session.currentUser) {
+    res.json(req.session.currentUser)
+  } else {
+    res.status(401).json({ // status 401 when user needs to login
+      status: 401,
+      message: 'not logged in'
+    })
+  }
+})
+
+// controllers
+const gamesController = require('./controllers/games.js')
+app.use('/games', gamesController)
+
 // listener
 app.listen(PORT, () => {
   console.log('Breathing easily ...' , PORT)
