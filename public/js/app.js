@@ -3,10 +3,14 @@
 // setup
 const app = angular.module('RefereeApp', [])
 
-// app.controller is the controller for authorization
+// app.controller using AuthController as the controller for authorization
 app.controller('AuthController', ['$http', function($http) {
   const controller = this
+
+  // create user
   this.createUser = function() {
+    console.log(this.username)
+    console.log(this.password)
     $http({
       method: 'POST',
       url: '/users',
@@ -16,12 +20,13 @@ app.controller('AuthController', ['$http', function($http) {
       }
     }).then (
       function(response) {
-        controller.username = null;
-        controller.password = null;
-        console.log(response);
+        controller.username = null
+        controller.password = null
+        console.log(response)
+        alert('user created, please click login button')
       },
       function(error) {
-        console.log(error);
+        console.log(error)
       }
     )
   }
@@ -48,6 +53,7 @@ app.controller('AuthController', ['$http', function($http) {
   }
 
   this.logOut = function() {
+    console.log('logout button clicked')
     $http({
       method:'DELETE',
       url:'/sessions'

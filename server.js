@@ -15,7 +15,7 @@ app.use(express.json()) // middleware that parses JSON
 app.use(session({
   secret: 'lightenup',
   resave: false,
-  saveUniniatialzed: false
+  saveUninitialized: false
 }))
 
 // connect to the database
@@ -41,6 +41,12 @@ app.get('/app', (req, res) => {
 // controllers
 const gamesController = require('./controllers/games.js')
 app.use('/games', gamesController)
+
+const userController = require('./controllers/users.js')
+app.use('/users', userController);
+
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController)
 
 // listener
 app.listen(PORT, () => {

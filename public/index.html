@@ -6,7 +6,7 @@
     <script src="/js/app.js"></script>
     <title>Referee Fees Tracker</title>
   </head>
-  <body ng-controller="MainController as ctrl">
+  <body>
     <h1>Referee Fees Tracker</h1>
     <!-- Authentication -->
     <div ng-controller="AuthController as auth" class="authentication">
@@ -29,11 +29,14 @@
       <h2>Go to "Referee Fees Tracker App"</h2>
       <a href="#" ng-click="auth.goApp()">Click Here</a>
       <br/>
-      <form ng-submt="auth.logOut()">
+      <form ng-submit="auth.logOut()">
         <input type="submit" value="Logout">
       </form>
       <!-- end div authentication -->
     </div>
+    <!-- <div ng-controller="MainController as ctrl">
+
+    </div> -->
     <!-- <div ng-repeat="game in ctrl.games">
       <dl>
         <dt>{{game.date}}</dt>

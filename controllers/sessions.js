@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
         res.status(201).json({
           status: 201,
           message: 'session created'
-        }) else {
+        })} else {
           console.log('hit the else statement => login failed')
           res.status(401).json({
             status: 401,
@@ -29,8 +29,7 @@ router.post('/', (req, res) => {
         res.status(401).json({
           status: 401,
           message: 'login failed'
-        })
-      }
+      })
     }
   })
 })
