@@ -15,5 +15,12 @@ router.post('/', (req, res) => {
   })
 })
 
+// index route
+router.get('/', (req, res) => {
+  Games.find({}, (error, foundGames) => {
+    res.json(foundGames)
+  })
+})
+
 // export the games router
 module.exports = router
