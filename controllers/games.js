@@ -29,5 +29,12 @@ router.delete('/:id', (req, res) => {
   })
 })
 
+// update route 
+router.put('/:id', (req, res) => {
+  Games.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedGame) => {
+      res.json(updatedGame)
+  })
+})
+
 // export the games router
 module.exports = router
