@@ -3,12 +3,14 @@
 // setup
 const app = angular.module('RefereeApp', [])
 
-// GameController
+// GameController as the controller for the game-cards
 app.controller('GameController', ['$http', function ($http) {
   // declare controller variable to be at the level of the app.controller
   const controller = this
   this.hello = 'Welcome to the Referee Fees Tracker'
 }]) // closes app.controller - GameController
+
+
 
 // AuthController as the controller for authorization
 app.controller('AuthController', ['$http', function($http) {
