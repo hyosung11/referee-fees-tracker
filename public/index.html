@@ -34,25 +34,41 @@
       <form ng-submit="auth.logOut()">
         <input type="submit" value="Logout">
       </form>
-      <!-- end div authentication -->
-    </div>
-    <div ng-controller="GameController as ctrl" class="game-cards">
-      <h1>{{ctrl.hello}}</h1>
-      <div ng-repeat="game in ctrl.games">
-        <dl>
-          <dt>{{game.date}}</dt>
-          <dt>{{game.time}}</dt>
-          <dt>{{game.location}}</dt>
-          <dt>{{game.competition}}</dt>
-          <dt>{{game.home}}</dt>
-          <dt>{{game.away}}</dt>
-          <dt>{{game.fee}}</dt>
-          <dt>{{game.paymentType}}</dt>
-          <dt>{{game.received}}</dt>
-          <dt>{{game.note}}</dt>
-        </dl>
-      </div>
-      <!-- end div  game-cards -->
-    </div>
+    </div> <!-- end div authentication -->
+    <div ng-controller="GameController as ctrl" class="games">
+      <h3>Create Game</h3>
+      <!-- create new game card form-->
+      <form ng-submit="ctrl.createGame()">
+        <input type="text" ng-model="ctrl.date" placeholder="date"/>
+        <input type="text" ng-model="ctrl.time" placeholder="time"/>
+        <input type="text" ng-model="ctrl.location" placeholder="location"/>
+        <input type="text" ng-model="ctrl.competition" placeholder="competition"/>
+        <input type="text" ng-model="ctrl.home" placeholder="home"/>
+        <input type="text" ng-model="ctrl.away" placeholder="away"/>
+        <input type="text" ng-model="ctrl.fee" placeholder="$"/>
+        <input type="text" ng-model="ctrl.paymentType" placeholder="payment type"/>
+        <input type="checkbox" ng-model="ctrl.received"/> Fee Received
+        <input type="textarea" ng-model="ctrl.note" placeholder="note"/>
+        <input type="submit" value="Create New Game"/>
+      </form>
+
+
+            <dl ng-repeat="game in ctrl.games">
+              Date: <dt>{{game.date}}</dt>
+              <dt>{{game.time}}</dt>
+              <dt>{{game.location}}</dt>
+              <dt>{{game.competition}}</dt>
+              <dt>{{game.home}}</dt>
+              <dt>{{game.away}}</dt>
+              <dt>{{game.fee}}</dt>
+              <dt>{{game.paymentType}}</dt>
+              <dt>{{game.received}}</dt>
+              <dt>{{game.note}}</dt>
+            </dl>
+
+
+
+
+    </div> <!-- end div class="game-cards" -->
   </body>
 </html>

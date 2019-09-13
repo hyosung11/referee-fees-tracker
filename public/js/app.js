@@ -7,10 +7,50 @@ const app = angular.module('RefereeApp', [])
 app.controller('GameController', ['$http', function ($http) {
   // declare controller variable to be at the level of the app.controller
   const controller = this
-  this.hello = 'Welcome to the Referee Fees Tracker'
+
+  this.getGames = function () {
+    $http({
+      method: 'GET',
+      url: '/games',
+    }).then(function (response) {
+        controller.games = response.data // set value on success
+        console.log(response)
+    }, function () {
+        console.log('error')
+    })
+  }
+
+  this.getGames() // call immediately once controller is instantiated
+
+  // create game function
+  this.createGame = function () {
+    $http({
+      method: 'POST',
+      url: '/games',
+      data: {
+        date: this.date,
+        time: this.time,
+        location: this.location,
+        competition: this.competition,
+        home: this.home,
+        away: this.away,
+        fee: this.fee,
+        paymentType: this.paymentType,
+        received: this.received,
+        note: this.note
+      }
+    }).then(
+      function (response) {
+        console.log(response)
+      }, function () {
+          console.log(error)
+      }
+    )
+  }
 }]) // closes app.controller - GameController
 
 
+// ==== USER FUNCTIONS ==== //
 
 // AuthController as the controller for authorization
 app.controller('AuthController', ['$http', function($http) {

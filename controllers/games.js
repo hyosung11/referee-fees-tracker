@@ -5,7 +5,7 @@ const express = require('express')
 const router = express.Router()
 const Games = require('../models/game.js')
 
-// game controller routes
+// GAME CONTROLLER ROUTES
 
 // create game
 router.post('/', (req, res) => {
@@ -29,7 +29,7 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-// update route 
+// update route
 router.put('/:id', (req, res) => {
   Games.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedGame) => {
       res.json(updatedGame)
