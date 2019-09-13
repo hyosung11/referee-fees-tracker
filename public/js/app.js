@@ -41,12 +41,14 @@ app.controller('GameController', ['$http', function ($http) {
       }
     }).then(
       function (response) {
+        controller.getGames()
         console.log(response)
       }, function () {
           console.log(error)
       }
     )
   }
+
 }]) // closes app.controller - GameController
 
 
