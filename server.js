@@ -4,6 +4,7 @@
 const express = require('express')
 const app = express()
 
+// require dotenv because it contains the MongoDB Atlas project link
 require('dotenv').config()
 const mongoose = require('mongoose')
 const session = require('express-session')
@@ -19,7 +20,7 @@ app.use(session({
   saveUninitialized: false
 }))
 
-// Database
+// Database - connect locally or via heroku
 const FINAL_PROJECT_DB = process.env.FINAL_PROJECT_DB
 
 // Fix Deprecation Warnings from Mongoose
