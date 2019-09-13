@@ -15,10 +15,17 @@ router.post('/', (req, res) => {
   })
 })
 
-// index route
+// index/read route
 router.get('/', (req, res) => {
   Games.find({}, (error, foundGames) => {
     res.json(foundGames)
+  })
+})
+
+// delete route
+router.delete('/:id', (req, res) => {
+  Games.findByIdAndRemove(req.params.id, (error, deletedGame) => {
+    res.json(deletedGame)
   })
 })
 
