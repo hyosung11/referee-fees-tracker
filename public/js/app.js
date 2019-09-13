@@ -8,6 +8,18 @@ app.controller('GameController', ['$http', function ($http) {
   // declare controller variable to be at the level of the app.controller
   const controller = this
 
+  this.deleteGame = function (game) {
+    $http({
+      method: 'DELETE',
+      url: '/games/' + game._id
+    }).then (function (response) {
+        controller.getGames()
+    },
+      function (error) {
+    })
+  }
+
+  // get/read games function
   this.getGames = function () {
     $http({
       method: 'GET',
