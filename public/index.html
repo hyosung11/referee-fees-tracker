@@ -71,8 +71,16 @@
               <dt>Fee Received: {{game.received}}</dt>
               <dt>Note: {{game.note}}</dt>
               <br/>
-              <h2>Edit Game</h2>
-              <form ng-submit="ctrl.editGame(game)">
+              <a
+                href="#"
+                ng-if="$index !== ctrl.indexOfEditFormToShow"
+                ng-click="ctrl.indexOfEditFormToShow = $index">
+                <!-- <h2>Edit Game</h2> -->
+                <input type="submit" value="Edit Game">
+              </a>
+              <form
+                ng-submit="ctrl.editGame(game)"
+                ng-if="$index === ctrl.indexOfEditFormToShow">
                 <input type="text" ng-model="ctrl.date" placeholder="Date"/>
                 <input type="text" ng-model="ctrl.time" placeholder="Time"/>
                 <input type="text" ng-model="ctrl.location" placeholder="Location"/>
@@ -83,7 +91,8 @@
                 <input type="text" ng-model="ctrl.paymentType" placeholder="Payment Type"/>
                 <input type="text" ng-model="ctrl.received" placeholder="Received"/>
                 <input type="text" ng-model="ctrl.note" placeholder="Note"/>
-                <input type="submit" value="Edit Game">
+                <input type="submit" value="Submit Change">
+
               </form>
               <button ng-click="ctrl.deleteGame(game)">Delete Game</button>
             </dl>

@@ -7,6 +7,7 @@ const app = angular.module('RefereeApp', [])
 app.controller('GameController', ['$http', function ($http) {
   // declare controller variable to be at the level of the app.controller
   const controller = this
+  this.indexOfEditFormToShow = null
 
   // update/edit a game
   this.editGame = function (game) {
@@ -28,6 +29,7 @@ app.controller('GameController', ['$http', function ($http) {
     }).then(
         function (response) {
           controller.getGames()
+          controller.indexOfEditFormToShow = null
     },
     function (error) {
    })
