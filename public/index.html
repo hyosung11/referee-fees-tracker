@@ -60,16 +60,31 @@
           </div>
           <div class="flip-card-back">
             <dl>
-              <dt> Date: {{game.date}}</dt>
-              <dt> Time: {{game.time}}</dt>
-              <dt> Location: {{game.location}}</dt>
-              <dt> Competition: {{game.competition}}</dt>
-              <dt> Home: {{game.home}}</dt>
-              <dt> Away: {{game.away}}</dt>
-              <dt> Fee: $ {{game.fee}}</dt>
-              <dt> Payment Type: {{game.paymentType}}</dt>
-              <dt> Fee Received: {{game.received}}</dt>
-              <dt> Note: {{game.note}}</dt>
+              <dt>Date: {{game.date}}</dt>
+              <dt>Time: {{game.time}}</dt>
+              <dt>Location: {{game.location}}</dt>
+              <dt>Competition: {{game.competition}}</dt>
+              <dt>Home: {{game.home}}</dt>
+              <dt>Away: {{game.away}}</dt>
+              <dt>Fee: $ {{game.fee}}</dt>
+              <dt>Payment Type: {{game.paymentType}}</dt>
+              <dt>Fee Received: {{game.received}}</dt>
+              <dt>Note: {{game.note}}</dt>
+              <br/>
+              <h2>Edit Game</h2>
+              <form ng-submit="ctrl.editGame(game)">
+                <input type="text" ng-model="ctrl.date" placeholder="Date"/>
+                <input type="text" ng-model="ctrl.time" placeholder="Time"/>
+                <input type="text" ng-model="ctrl.location" placeholder="Location"/>
+                <input type="text" ng-model="ctrl.competition" placeholder="Competition"/>
+                <input type="text" ng-model="ctrl.home" placeholder="Home"/>
+                <input type="text" ng-model="ctrl.Away" placeholder="Away"/>
+                <input type="text" ng-model="ctrl.fee" placeholder="$ Fee"/>
+                <input type="text" ng-model="ctrl.paymentType" placeholder="Payment Type"/>
+                <input type="text" ng-model="ctrl.received" placeholder="Received"/>
+                <input type="text" ng-model="ctrl.note" placeholder="Note"/>
+                <input type="submit" value="Edit Game">
+              </form>
               <button ng-click="ctrl.deleteGame(game)">Delete Game</button>
             </dl>
           </div>
