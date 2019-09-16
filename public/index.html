@@ -6,37 +6,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
     <script src="/js/app.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
-
   </head>
-  <body>
+  <body ng-controller="GameController as ctrl">
     <h1>Referee Fees Tracker</h1>
     <!-- Authentication -->
-    <div ng-controller="AuthController as auth" class="authentication">
+    <div class="authentication">
       <h1>Authentication</h1>
-      <div ng-if="auth.loggedInUsername">
-        Welcome, <h2>{{auth.loggedInUsername}}</h2>
+      <div ng-if="ctrl.loggedInUsername">
+        Welcome, <h2>{{ctrl.loggedInUsername}}</h2>
       </div>
       <h2>Create User</h2>
-      <form ng-submit="auth.createUser()">
-        <input type="text" ng-model="auth.newUsername"/ placeholder="username">
-        <input type="password" ng-model="auth.newPassword" placeholder="password"/>
+      <form ng-submit="ctrl.createUser()">
+        <input type="text" ng-model="ctrl.newUsername"/ placeholder="username">
+        <input type="password" ng-model="ctrl.newPassword" placeholder="password"/>
         <input type="submit" value="Create User"/>
       </form>
       <h2>Login</h2>
-      <form ng-submit="auth.logIn()" ng-if="!auth.loggedInUsername">
-        <input type="text" ng-model="auth.username" placeholder="username"/>
-        <input type="password" ng-model="auth.password" placeholder="password"/>
+      <form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
+        <input type="text" ng-model="ctrl.username" placeholder="username"/>
+        <input type="password" ng-model="ctrl.password" placeholder="password"/>
         <input type="submit" value="Login"/>
       </form>
       <h2>Go to "Referee Fees Tracker App"</h2>
-      <a href="#" ng-click="auth.goApp()">Click Here</a>
+      <a href="#" ng-click="ctrl.goApp()">Click Here</a>
       <br/>
-      <form ng-submit="auth.logOut()" ng-if="auth.loggedInUsername">
+      <form ng-submit="ctrl.logOut()" ng-if="ctrl.loggedInUsername">
         <h2>Logout</h2>
         <input type="submit" value="Logout">
       </form>
     </div> <!-- end div authentication -->
-    <div ng-controller="GameController as ctrl" class="games">
+    <div class="games">
       <h3>Create Game</h3>
       <!-- create new game card form-->
       <form ng-submit="ctrl.createGame()">

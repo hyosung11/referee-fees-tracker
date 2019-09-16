@@ -56,15 +56,15 @@ router.put('/:user/:id', (req, res) => {
       console.log(error)
     } else {
       // Find the index of the job in the user's jobList
-      console.log('req.params: ', req.params);
-      let idString = req.params.id.toString();
-      console.log('idString: ', idString);
+      console.log('req.params: ', req.params)
+      let idString = req.params.id.toString()
+      console.log('idString: ', idString)
 
       let checkID = []
       for (let i = 0; i < foundUser.gameList.length; i++) {
         checkID[i] = foundUser.gameList[i]._id.toString()
       }
-      console.log('checkID: ', checkID);
+      console.log('checkID: ', checkID)
 
       function isRightIndex (gameNo) {
         return (gameNo == idString)
@@ -101,7 +101,7 @@ router.delete('/:user/:id', (req, res) => {
       let idString = req.params.id.toString()
       console.log(idString);
 
-      let checkID = [];
+      let checkID = []
       for (let i = 0; i < foundUser.gameList.length; i++) {
         checkID[i] = foundUser.gameList[i]._id.toString()
       }
@@ -112,7 +112,7 @@ router.delete('/:user/:id', (req, res) => {
       }
       let index = checkID.findIndex(isRightIndex)
 
-      console.log(index);
+      console.log(index)
 
       if (index !== -1) {
         // foundUser.jobList.splice(0, 1)
@@ -136,5 +136,5 @@ router.delete('/:user/:id', (req, res) => {
   })
 })
 
-// export the user's router 
+// export the user's router
 module.exports = router
