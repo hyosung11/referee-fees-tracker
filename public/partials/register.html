@@ -1,5 +1,6 @@
-<div class="about">
-<main>
-  <p>This app allows you to track your job search by making cards with important information. You can include the position, company, whether you've applied, if you have sent your resume and cover letter, whether you have followed up, salary, the website address, and any notes you want to keep.</p>
-</main>
-</div>
+<h2>Register</h2>
+<form ng-submit="ctrl.createUser()">
+  <input type="text" ng-model="ctrl.newUsername" placeholder="username" />
+  <input type="password" ng-model="ctrl.newPassword" placeholder="password"/>
+  <input type="submit" value="Register"/>
+</form>
