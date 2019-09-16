@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html ng-app="RefereeApp" lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Referee Fees Tracker</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-  <script src="/js/app.js"></script>
-  <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body ng-controller="GameController as ctrl">
-  <header>
-    <h1>Referee Fees Tracker</h1>
-    <hr>
-  </header>
-  <div class="main-content">
-    <nav ng-include="'partials/navigation.html'">
-    </nav>
-    <div class="container">
-      <div ng-include="ctrl.includePath">
+  <head>
+    <meta charset="utf-8">
+    <title>Referee Fees Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script src="/js/app.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body ng-controller="GameController as ctrl">
+    <header>
+      <img src="" alt="">
+      <h1>Referee Fees Tracker</h1>
+      <hr>
+    </header>
+    <div class="main-content">
+      <nav ng-include="'partials/navigation.html'">
+      </nav>
+      <div class="container">
+        <div ng-include="ctrl.includePath">
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

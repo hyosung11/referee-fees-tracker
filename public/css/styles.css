@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid salmon;
-}
+} */
 
 body {
   background-color: forestgreen;
@@ -10,6 +10,13 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
 .main-content {
   display: flex;
   flex-direction: row;
@@ -24,18 +31,28 @@ nav {
 }
 
 .container {
-  width: 88%;
+  width: 85%;
 }
 
 .button {
   margin: 20px 0;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
   /* background-color: #0EB64B; */
   background-color: rgba(212, 201, 202, .6);
-  border-radius: 12px;
+  border-radius: 5px;
   border: 3px solid black;
   padding: 10px;
   /* opacity: 1; */
+}
+
+.button:hover, .button:focus {
+  cursor: pointer;
+  border: 3px solid black;
+  transform: translateY(-0.25em);
+  padding: 10px;
+  border-radius: 13px;
+  background-color: yellow;
+  opacity: 1;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -81,4 +98,9 @@ nav {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+}
+
+dl {
+  padding: 20px;
+  line-height: 1.5em;
 }
