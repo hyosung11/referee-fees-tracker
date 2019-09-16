@@ -4,6 +4,9 @@
 
 body {
   background-color: forestgreen;
+  background-image: url("/images/field-grass-green-47343.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -23,6 +26,7 @@ h3 {
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
+
 }
 
 nav {
