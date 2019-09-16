@@ -7,6 +7,11 @@ const app = angular.module('RefereeApp', [])
 
 // GameController as the controller for the game functions
 app.controller('GameController', ['$http', function ($http) {
+  // include path enables the use of partials
+  this.includePath = 'partials/home.html'
+  this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html'
+  }
   // declare controller variable to be at the level of the app.controller
   const controller = this
   // this.indexOfEditFormToShow = null
