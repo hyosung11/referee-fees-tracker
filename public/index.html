@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="../css/styles.css">
   </head>
   <body ng-controller="GameController as ctrl">
-    <h1>Referee Fees Tracker</h1>
+    <header>
+      <h1>Referee Fees Tracker</h1>
+    </header>
+    <nav ng-include="'partials/navigation.html'">      
+    </nav>
+
+
     <!-- Authentication -->
     <div class="authentication">
-      <h1>Authentication</h1>
+      <!-- <h1>Authentication</h1> -->
       <div ng-if="ctrl.loggedInUsername">
         Welcome, <h2>{{ctrl.loggedInUsername}}</h2>
       </div>
@@ -36,9 +42,10 @@
       </form>
     </div> <!-- end div authentication -->
     <div class="games">
-      <h3>Create Game</h3>
       <!-- create new game card form-->
-      <form ng-submit="ctrl.createGame()">
+
+      <form ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
+        <h3>Create Game</h3>
         <input type="text" ng-model="ctrl.date" placeholder="date"/>
         <input type="text" ng-model="ctrl.time" placeholder="time"/>
         <input type="text" ng-model="ctrl.location" placeholder="location"/>
