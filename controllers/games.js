@@ -15,24 +15,11 @@ router.post('/', (req, res) => {
   })
 })
 
-// index/read route
-router.get('/', (req, res) => {
-  Games.find({}, (error, foundGames) => {
-    res.json(foundGames)
-  })
-})
-
-// delete route
-router.delete('/:id', (req, res) => {
-  Games.findByIdAndRemove(req.params.id, (error, deletedGame) => {
-    res.json(deletedGame)
-  })
-})
-
-// update route
+// update game
 router.put('/:id', (req, res) => {
   Games.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedGame) => {
       res.json(updatedGame)
+      console.log('updated game: ', updatedGame)
   })
 })
 

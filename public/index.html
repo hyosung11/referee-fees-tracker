@@ -14,16 +14,16 @@
     <div ng-controller="AuthController as auth" class="authentication">
       <h1>Authentication</h1>
       <div ng-if="auth.loggedInUsername">
-        Welcome, {{auth.loggedInUsername}}
+        Welcome, <h2>{{auth.loggedInUsername}}</h2>
       </div>
       <h2>Create User</h2>
       <form ng-submit="auth.createUser()">
-        <input type="text" ng-model="auth.username"/ placeholder="username">
-        <input type="password" ng-model="auth.password" placeholder="password"/>
+        <input type="text" ng-model="auth.newUsername"/ placeholder="username">
+        <input type="password" ng-model="auth.newPassword" placeholder="password"/>
         <input type="submit" value="Create User"/>
       </form>
       <h2>Login</h2>
-      <form ng-submit="auth.logIn()">
+      <form ng-submit="auth.logIn()" ng-if="!auth.loggedInUsername">
         <input type="text" ng-model="auth.username" placeholder="username"/>
         <input type="password" ng-model="auth.password" placeholder="password"/>
         <input type="submit" value="Login"/>
@@ -31,7 +31,8 @@
       <h2>Go to "Referee Fees Tracker App"</h2>
       <a href="#" ng-click="auth.goApp()">Click Here</a>
       <br/>
-      <form ng-submit="auth.logOut()">
+      <form ng-submit="auth.logOut()" ng-if="auth.loggedInUsername">
+        <h2>Logout</h2>
         <input type="submit" value="Logout">
       </form>
     </div> <!-- end div authentication -->
@@ -54,6 +55,9 @@
 
 
       <div class="flip-card" ng-repeat="game in ctrl.games">
+        <div ng-if="ctrl.loggedInUsername" class="">
+
+
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <img src="/images/soccer-ball.jpg" alt="ball" style="width:100%">
@@ -98,7 +102,8 @@
             </dl>
           </div>
         </div>
-      </div>
+        </div>
+      </div> <!-- end div class="flip-card" -->
     </div> <!-- end div class="game-cards" -->
   </body>
 </html>
