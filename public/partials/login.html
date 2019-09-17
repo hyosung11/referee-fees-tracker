@@ -38,7 +38,7 @@
     <!-- <div  class=""> -->
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="/images/soccer-ball.jpg" alt="ball" style="width:100%">
+          <img class="card-front" src="/images/soccer-ball.jpg" alt="ball">
         </div>
         <div class="flip-card-back">
           <h3>Game Info</h3>
@@ -55,7 +55,7 @@
             <dt ng-if="!game.received">Fee Received: No</dt>
             <dt>Note: {{game.note}}</dt>
           </dl>
-            <br/>
+          <br/>
             <a
               href="#"
               ng-if="$index !== ctrl.indexOfEditFormToShow"
