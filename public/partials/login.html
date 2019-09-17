@@ -1,11 +1,11 @@
 <!-- Authentication -->
-<div class="authentication">
+<!-- <div class="authentication"> -->
   <!-- <h1>Authentication</h1> -->
   <div ng-if="ctrl.loggedInUsername">
     <h2>Welcome, {{ctrl.loggedInUsername}}</h2>
   </div>
+  <h2 ng-hide="ctrl.loggedInUsername">Login</h2>
   <form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
-    <h2>Login</h2>
     <input type="text" ng-model="ctrl.username" placeholder="username"/>
     <input type="password" ng-model="ctrl.password" placeholder="password"/>
     <input type="submit" value="Login"/>
@@ -15,7 +15,7 @@
     <!-- <h2>Logout</h2> -->
     <input type="submit" value="Logout">
   </form>
-</div> <!-- end div authentication -->
+<!-- </div> <!-- end div authentication -->
 <div class="games">
   <!-- create new game card form-->
   <form ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">

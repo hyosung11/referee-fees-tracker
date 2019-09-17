@@ -1,6 +1,6 @@
-/* * {
+* {
   border: 1px solid salmon;
-} */
+}
 
 @import url('https://fonts.googleapis.com/css?family=Coda&display=swap');
 
@@ -9,8 +9,14 @@ body {
   background-image: url("/images/field-grass-green-47343.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: 66%;
+  background-position-y: 45%;
   color: ghostwhite;
-  font-family: 'Coda', cursive;
+  font-family: 'Coda';
+}
+
+.scroll {
+  overflow: scroll;
 }
 
 h1 {
@@ -25,6 +31,7 @@ h2 {
 h3 {
   text-align: center;
 }
+
 .main-content {
   display: flex;
   flex-direction: row;
@@ -32,6 +39,7 @@ h3 {
   align-items: flex-start;
   margin: 0 auto;
   padding: 0 10px;
+  height: 90vh;
 }
 
 p {
