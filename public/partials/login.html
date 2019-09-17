@@ -1,48 +1,48 @@
 <!-- Authentication -->
 <!-- <div class="authentication"> -->
   <!-- <h1>Authentication</h1> -->
-  <div ng-if="ctrl.loggedInUsername">
-    <h2>Welcome, {{ctrl.loggedInUsername}}</h2>
-  </div>
+<div ng-if="ctrl.loggedInUsername">
+  <h2>Welcome, {{ctrl.loggedInUsername}}</h2>
+</div>
   <h2 ng-hide="ctrl.loggedInUsername">Login</h2>
-  <form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
-    <input type="text" ng-model="ctrl.username" placeholder="username"/>
-    <input type="password" ng-model="ctrl.password" placeholder="password"/>
-    <input type="submit" value="Login"/>
-  </form>
-  <br/>
-  <form ng-submit="ctrl.logOut()" ng-if="ctrl.loggedInUsername">
-    <!-- <h2>Logout</h2> -->
-    <input type="submit" value="Logout">
-  </form>
+<form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
+  <input type="text" ng-model="ctrl.username" placeholder="username"/>
+  <input type="password" ng-model="ctrl.password" placeholder="password"/>
+  <input type="submit" value="Login"/>
+</form>
+<br/>
+<form class="logout-button" ng-submit="ctrl.logOut()" ng-if="ctrl.loggedInUsername">
+  <input type="submit" value="Logout">
+</form>
 <!-- </div> <!-- end div authentication -->
-<div class="games">
-  <!-- create new game card form-->
-  <form ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
-    <h3>Create Game</h3>
-    <input type="text" ng-model="ctrl.date" placeholder="date"/>
-    <input type="text" ng-model="ctrl.time" placeholder="time"/>
-    <input type="text" ng-model="ctrl.location" placeholder="location"/>
-    <input type="text" ng-model="ctrl.competition" placeholder="competition"/>
-    <input type="text" ng-model="ctrl.home" placeholder="home"/>
-    <input type="text" ng-model="ctrl.away" placeholder="away"/>
-    <input type="text" ng-model="ctrl.fee" placeholder="$"/>
-    <input type="text" ng-model="ctrl.paymentType" placeholder="payment type"/>
-    Fee Received <input type="checkbox" ng-model="ctrl.received"/>
-    <input type="textarea" ng-model="ctrl.note" placeholder="note"/>
-    <input type="submit" value="Create New Game"/>
-  </form>
-  <br/>
-  <div class="flip-card" ng-repeat="game in ctrl.games" ng-if="ctrl.loggedInUsername">
-    <div  class="">
+<!-- create new game card form-->
+<h3 ng-show="ctrl.loggedInUsername">Create Game Card</h3>
+<form class="create-game-form" ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
 
+  <input type="text" ng-model="ctrl.date" placeholder="date"/>
+  <input type="text" ng-model="ctrl.time" placeholder="time"/>
+  <input type="text" ng-model="ctrl.location" placeholder="location"/>
+  <input type="text" ng-model="ctrl.competition" placeholder="competition"/>
+  <input type="text" ng-model="ctrl.home" placeholder="home"/>
+  <input type="text" ng-model="ctrl.away" placeholder="away"/>
+  <input type="text" ng-model="ctrl.fee" placeholder="$"/>
+  <input type="text" ng-model="ctrl.paymentType" placeholder="payment type"/>
+  Fee Received <input type="checkbox" ng-model="ctrl.received"/>
+  <input type="textarea" ng-model="ctrl.note" placeholder="note"/>
+  <input type="submit" value="Create New Game Card"/>
+</form>
+<br/>
+<div class="games">
+
+  <div class="flip-card" ng-repeat="game in ctrl.games" ng-if="ctrl.loggedInUsername">
+    <!-- <div  class=""> -->
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="/images/soccer-ball.jpg" alt="ball" style="width:100%">
         </div>
         <div class="flip-card-back">
           <h3>Game Info</h3>
-          <dl>
+          <dl ng-hide="$index === ctrl.indexOfEditFormToShow">
             <dt>Date: {{game.date}}</dt>
             <dt>Time: {{game.time}}</dt>
             <dt>Location: {{game.location}}</dt>
@@ -54,6 +54,7 @@
             <dt ng-if="game.received">Fee Received: Yes</dt>
             <dt ng-if="!game.received">Fee Received: No</dt>
             <dt>Note: {{game.note}}</dt>
+          </dl>
             <br/>
             <a
               href="#"
@@ -64,7 +65,7 @@
             </a>
           <form
             ng-submit="ctrl.editGame(game)"
-            ng-if="$index === ctrl.indexOfEditFormToShow">
+            ng-show="$index === ctrl.indexOfEditFormToShow">
             <input type="text" ng-model="ctrl.date" placeholder="Date"/>
             <input type="text" ng-model="ctrl.time" placeholder="Time"/>
             <input type="text" ng-model="ctrl.location" placeholder="Location"/>
@@ -78,12 +79,11 @@
             <input type="submit" value="Submit Change">
           </form>
           <button ng-click="ctrl.deleteGame(game)">Delete Game</button>
-          </dl>
         </div>
       </div>
     </div>
   </div>
-</div> <!-- end div class="flip-card" -->
+<!-- </div> <!-- end div class="flip-card" -->
 <!-- </div> <!-- end div class="game-cards" -->
 <footer ng-if="ctrl.loggedInUsername">
   <h3>Total Fees Earned: </h3><h3>Total Received: </h3><h3>Total Owed:</h3>
