@@ -2,11 +2,15 @@
   border: 1px solid salmon;
 } */
 
+@import url('https://fonts.googleapis.com/css?family=Coda&display=swap');
+
 body {
-  background-color: forestgreen;
+  background-color: lightgreen;
   background-image: url("/images/field-grass-green-47343.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  color: ghostwhite;
+  font-family: 'Coda', cursive;
 }
 
 h1 {
@@ -15,6 +19,7 @@ h1 {
 
 h2 {
   text-align: center;
+  padding-right: 200px;
 }
 
 h3 {
@@ -26,7 +31,14 @@ h3 {
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
+  padding: 0 10px;
+}
 
+p {
+  margin-right: 250px;
+  margin-left: 100px;
+  text-align: justify;
+  line-height: 1.75em;
 }
 
 nav {
@@ -42,21 +54,25 @@ nav {
   margin: 20px 0;
   /* background-color: lightgrey; */
   /* background-color: #0EB64B; */
-  background-color: rgba(212, 201, 202, .6);
+  background-color: rgba(212, 201, 202, .3);
   border-radius: 5px;
-  border: 3px solid black;
+  border: 2px solid white;
   padding: 10px;
   /* opacity: 1; */
 }
 
 .button:hover, .button:focus {
   cursor: pointer;
-  border: 3px solid black;
+  border: 3px solid white;
   transform: translateY(-0.25em);
   padding: 10px;
   border-radius: 13px;
-  background-color: yellow;
+  background-color: black;
   opacity: 1;
+}
+
+form {
+  margin-left: 200px;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -107,4 +123,9 @@ nav {
 dl {
   padding: 20px;
   line-height: 1.5em;
+}
+
+footer {
+  display: flex;
+  align-items: center;
 }

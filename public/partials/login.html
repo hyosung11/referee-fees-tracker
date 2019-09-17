@@ -4,15 +4,12 @@
   <div ng-if="ctrl.loggedInUsername">
     <h2>Welcome, {{ctrl.loggedInUsername}}</h2>
   </div>
-
   <form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
     <h2>Login</h2>
     <input type="text" ng-model="ctrl.username" placeholder="username"/>
     <input type="password" ng-model="ctrl.password" placeholder="password"/>
     <input type="submit" value="Login"/>
   </form>
-  <!-- <h2>Go to "Referee Fees Tracker App"</h2> -->
-  <!-- <a href="#" ng-click="ctrl.goApp()">Click Here</a> -->
   <br/>
   <form ng-submit="ctrl.logOut()" ng-if="ctrl.loggedInUsername">
     <!-- <h2>Logout</h2> -->
@@ -31,13 +28,13 @@
     <input type="text" ng-model="ctrl.away" placeholder="away"/>
     <input type="text" ng-model="ctrl.fee" placeholder="$"/>
     <input type="text" ng-model="ctrl.paymentType" placeholder="payment type"/>
-    <input type="checkbox" ng-model="ctrl.received"/> Fee Received
+    Fee Received <input type="checkbox" ng-model="ctrl.received"/>
     <input type="textarea" ng-model="ctrl.note" placeholder="note"/>
     <input type="submit" value="Create New Game"/>
   </form>
-
-  <div class="flip-card" ng-repeat="game in ctrl.games">
-    <div ng-if="ctrl.loggedInUsername" class="">
+  <br/>
+  <div class="flip-card" ng-repeat="game in ctrl.games" ng-if="ctrl.loggedInUsername">
+    <div  class="">
 
       <div class="flip-card-inner">
         <div class="flip-card-front">
@@ -54,7 +51,8 @@
             <dt>Away: {{game.away}}</dt>
             <dt>Fee: {{game.fee | currency}}</dt>
             <dt>Payment Type: {{game.paymentType}}</dt>
-            <dt>Fee Received: {{game.received}}</dt>
+            <dt ng-if="game.received">Fee Received: Yes</dt>
+            <dt ng-if="!game.received">Fee Received: No</dt>
             <dt>Note: {{game.note}}</dt>
             <br/>
             <a
@@ -87,3 +85,6 @@
   </div>
 </div> <!-- end div class="flip-card" -->
 <!-- </div> <!-- end div class="game-cards" -->
+<footer ng-if="ctrl.loggedInUsername">
+  <h3>Total Fees Earned: </h3><h3>Total Received: </h3><h3>Total Owed:</h3>
+</footer>
