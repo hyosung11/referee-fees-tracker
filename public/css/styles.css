@@ -192,6 +192,11 @@ dl {
 
 footer {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: space-between;
   flex-wrap: wrap;
+}
+
+.fees {
+  margin: 10px 10px;
 }
