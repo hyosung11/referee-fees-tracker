@@ -7,7 +7,7 @@ const gameSchema = new mongoose.Schema({
     competition: String,
     home: String,
     away: String,
-    fee: Number,
+    fee: {type: Number, default: 0},
     paymentType: String,
     received: Boolean,
     note: String

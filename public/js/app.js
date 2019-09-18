@@ -71,9 +71,22 @@ app.controller('GameController', ['$http', function ($http) {
       function (response) {
         controller.games = response.data // set value on success
         console.log('games to be displayed on the page: ')
+
+        controller.totalEarned = 0
+        controller.totalReceived = 0
+        controller.totalOwed = 0
+
         for (let i = 0; i < controller.games.length; i++) {
-          console.log(controller.games[i]._id + '' + controller.games[i].position)
-        }
+          controller.totalEarned += controller.games[i].fee
+          if (controller.games[i].received) {
+          controller.totalReceived += controller.games[i].fee
+          }
+          console.log(controller.games[i].fee);
+          console.log(controller.games[i]._id + '')
+        } controller.totalOwed = controller.totalEarned - controller.totalReceived
+        console.log(controller.totalOwed)
+        console.log(controller.totalEarned)
+        console.log(controller.totalReceived)
     }, function (error) {
         console.log(error)
     })

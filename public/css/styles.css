@@ -110,10 +110,21 @@ form {
 }
 
 .create-game-form {
+  border: 1px solid gold;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  margin-bottom: 5px;
+  width: 200px;
+  height: 400px;
+  /* flex-wrap: wrap; */
+  /* margin: 0 80px; */
+}
+
+input {
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid yellow;
 }
 
 .games {
