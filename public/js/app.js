@@ -3,8 +3,6 @@
 // setup
 const app = angular.module('RefereeApp', [])
 
-// let sessionLogInID = null
-
 // GameController as the controller for the game functions
 app.controller('GameController', ['$http', function ($http) {
   // include path enables the use of partials
@@ -153,9 +151,6 @@ app.controller('GameController', ['$http', function ($http) {
         controller.getUserGames()
     })
   }
-
-// }]) // closes app.controller - GameController
-
 
 // ==== USER FUNCTIONS ==== //
 
