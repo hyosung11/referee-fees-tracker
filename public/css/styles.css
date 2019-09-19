@@ -4,11 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Coda&display=swap');
 
-/* .random {
-  border: 3px solid blue;
-  margin: 0 auto;
-} */
-
 body {
   background-color: lightgreen;
   background-image: url("/images/field-grass-green-47343.jpg");
@@ -24,10 +19,6 @@ body {
   overflow: scroll;
 }
 
-/* .header-image {
-  width: 10%;
-} */
-
 h1 {
   text-align: center;
   width: 88%;
@@ -36,7 +27,6 @@ h1 {
 
 h2 {
   text-align: center;
-  /* padding-right: 200px; */
 }
 
 h3 {
@@ -54,8 +44,6 @@ h3 {
 }
 
 p {
-  /* margin-right: 250px;
-  margin-left: 100px; */
   text-align: justify;
   line-height: 1.75em;
   width: 80%;
@@ -73,7 +61,6 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* border: 3px solid blue; */
 }
 
 .authentication {
@@ -93,10 +80,10 @@ nav {
 
 .button:hover, .button:focus {
   cursor: pointer;
-  border: 3px solid white;
+  border: 2px solid white;
   transform: translateY(-0.25em);
   padding: 10px;
-  border-radius: 13px;
+  border-radius: 10px;
   background-color: black;
   opacity: 1;
 }
@@ -105,26 +92,39 @@ nav {
   /* margin-left: 320px; */
 }
 
+a {
+  text-decoration: none;
+}
+
 form {
   margin: 0 auto;
 }
 
 .create-game-form {
-  border: 1px solid gold;
+  border: 2px solid gold;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin-bottom: 5px;
   width: 200px;
   height: 400px;
-  /* flex-wrap: wrap; */
-  /* margin: 0 80px; */
+  padding: 0 5px;
+  background-color: forestgreen;
+}
+
+.fee-received-checkbox {
+  align-items: flex-start;
+  /* font-size: 24px; */
+  /* margin: 12px 12px; */
+  text-align: left;
 }
 
 input {
-  padding: 5px;
+  padding: 4px 8px;
   border-radius: 2px;
   border: 1px solid yellow;
+  color: darkgreen;
 }
 
 .games {
@@ -138,15 +138,15 @@ input {
 .flip-card {
   margin: 2px;
   background-color: transparent;
-  width: 200px;
-  height: 400px;
+  width: 250px;
+  height: 500px;
   border: 1px solid yellow;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 .card-front {
-  width: 200px;
-  height: 400px;
+  width: 250px;
+  height: 500px;
 }
 
 /* This container is needed to position the front and back side */
@@ -180,7 +180,7 @@ input {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: forestgreen;
   color: white;
   transform: rotateY(180deg);
 }
@@ -188,6 +188,23 @@ input {
 dl {
   padding: 20px;
   line-height: 1.5em;
+}
+
+.card-buttons {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 15px;
+}
+
+.card-buttons:hover, .card-buttons:focus {
+  cursor: pointer;
+  border: 2px solid white;
+  transform: translateY(-0.25em);
+  /* padding: 10px;
+  border-radius: 10px; */
+  background-color: yellow;
+  /* opacity: 1; */
 }
 
 footer {

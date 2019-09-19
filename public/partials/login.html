@@ -1,3 +1,4 @@
+<!-- Welcome User -->
 <div ng-if="ctrl.loggedInUsername">
   <h2>Welcome {{ctrl.loggedInUsername}}</h2>
 </div>
@@ -8,31 +9,34 @@
 <form ng-submit="ctrl.logIn()" ng-if="!ctrl.loggedInUsername">
   <input type="text" ng-model="ctrl.username" placeholder="username"/>
   <input type="password" ng-model="ctrl.password" placeholder="password"/>
-  <input type="submit" value="Login"/>
+  <input class="card-buttons" type="submit" value="Login"/>
 </form>
 
 <!-- logout form -->
 <form class="logout-button" ng-submit="ctrl.logOut()" ng-if="ctrl.loggedInUsername">
-  <input type="submit" value="Logout">
+  <input class="card-buttons" type="submit" value="Logout">
 </form>
 <h3 ng-show="ctrl.loggedInUsername">Create Game Card</h3>
 <!-- create game card form -->
 <form class="create-game-form" ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
-  <input type="text" ng-model="ctrl.date" placeholder="date"/>
-  <input type="text" ng-model="ctrl.time" placeholder="time"/>
-  <input type="text" ng-model="ctrl.location" placeholder="location"/>
-  <input type="text" ng-model="ctrl.competition" placeholder="competition"/>
-  <input type="text" ng-model="ctrl.home" placeholder="home"/>
-  <input type="text" ng-model="ctrl.away" placeholder="away"/>
-  <input type="text" ng-model="ctrl.fee" placeholder="$"/>
-  <input type="text" ng-model="ctrl.paymentType" placeholder="payment type"/>
-  Fee Received <input type="checkbox" ng-model="ctrl.received"/>
-  <input type="textarea" ng-model="ctrl.note" placeholder="note"/>
-  <input type="submit" value="Create New Game Card"/>
+  <input type="text" ng-model="ctrl.date" placeholder="Date"/>
+  <input type="text" ng-model="ctrl.time" placeholder="Time"/>
+  <input type="text" ng-model="ctrl.location" placeholder="Location"/>
+  <input type="text" ng-model="ctrl.competition" placeholder="Competition"/>
+  <input type="text" ng-model="ctrl.home" placeholder="Home"/>
+  <input type="text" ng-model="ctrl.away" placeholder="Away"/>
+  <input type="text" ng-model="ctrl.fee" placeholder="Fee $"/>
+  <input type="text" ng-model="ctrl.paymentType" placeholder="Payment Type"/>
+  <div class="fee-received-checkbox">
+    Fee Received <input type="checkbox" ng-model="ctrl.received"/>
+  </div>
+
+  <input type="textarea" ng-model="ctrl.note" placeholder="Note"/>
+  <input class="card-buttons" type="submit" value="Create New Game Card"/>
 </form>
 <br/>
-<div class="games">
 
+<div class="games">
   <div class="flip-card" ng-repeat="game in ctrl.games" ng-if="ctrl.loggedInUsername">
     <!-- <div  class=""> -->
       <div class="flip-card-inner">
@@ -54,15 +58,15 @@
             <dt ng-if="!game.received">Fee Received: No</dt>
             <dt>Note: {{game.note}}</dt>
           </dl>
-          <br/>
+          <!-- <br/> -->
             <a
               href="#"
               ng-if="$index !== ctrl.indexOfEditFormToShow"
               ng-click="ctrl.indexOfEditFormToShow = $index">
               <!-- <h2>Edit Game</h2> -->
-              <input type="submit" value="Edit Game">
+              <input class="card-buttons" type="submit" value="Edit Game">
             </a>
-          <form
+          <form class="create-game-form"
             ng-submit="ctrl.editGame(game)"
             ng-show="$index === ctrl.indexOfEditFormToShow">
             <input type="text" ng-model="ctrl.date" placeholder="Date"/>
@@ -73,12 +77,19 @@
             <input type="text" ng-model="ctrl.Away" placeholder="Away"/>
             <input type="text" ng-model="ctrl.fee" placeholder="$ Fee"/>
             <input type="text" ng-model="ctrl.paymentType" placeholder="Payment Type"/>
-            <br/> Fee Received:
-            <input type="checkbox" ng-model="ctrl.received" placeholder="Received"/>
+            <div class="fee-received-checkbox">
+              Fee Received <input type="checkbox" ng-model="ctrl.received" placeholder="Received"/>
+            </div>
+
+
+
+            <!-- Fee Received:
+            <input type="checkbox" ng-model="ctrl.received" placeholder="Received"/> -->
             <input type="text" ng-model="ctrl.note" placeholder="Note"/>
             <input type="submit" value="Submit Change">
           </form>
-          <button ng-click="ctrl.deleteGame(game)">Delete Game</button>
+          <input class="card-buttons" type="submit" value="Delete Game" ng-click="ctrl.deleteGame(game)">
+          </input>
         </div>
       </div>
     </div>

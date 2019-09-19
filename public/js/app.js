@@ -154,14 +154,10 @@ app.controller('GameController', ['$http', function ($http) {
 
 // ==== USER FUNCTIONS ==== //
 
-// AuthController as the controller for authorization
-// app.controller('AuthController', ['$http', function($http) {
-//   const controller = this
-
   // create user
   this.createUser = function() {
-    console.log(this.username)
-    console.log(this.password)
+    // console.log(this.username)
+    // console.log(this.password)
     $http({
       method: 'POST',
       url: '/users',
@@ -240,4 +236,4 @@ app.controller('GameController', ['$http', function ($http) {
       }
     )
   }
-}])
+}]) // close app.controller 
