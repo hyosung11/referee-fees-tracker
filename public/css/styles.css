@@ -84,7 +84,7 @@ nav {
   transform: translateY(-0.25em);
   padding: 10px;
   border-radius: 10px;
-  background-color: black;
+  background-color: forestgreen;
   opacity: 1;
 }
 
@@ -193,8 +193,8 @@ dl {
 .card-buttons {
   display: inline-flex;
   flex-direction: row;
-  align-items: flex-start;
-  margin-left: 15px;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .card-buttons:hover, .card-buttons:focus {

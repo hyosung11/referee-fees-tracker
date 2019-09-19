@@ -20,16 +20,16 @@ app.controller('GameController', ['$http', function ($http) {
       method: 'POST',
       url: '/games',
       data: {
-        date: this.date,
-        time: this.time,
-        location: this.location,
-        competition: this.competition,
-        home: this.home,
-        away: this.away,
-        fee: this.fee,
-        paymentType: this.paymentType,
-        received: this.received,
-        note: this.note
+        date: this.newDate,
+        time: this.newTime,
+        location: this.newLocation,
+        competition: this.newCompetition,
+        home: this.newHome,
+        away: this.newAway,
+        fee: this.newFee,
+        paymentType: this.newPaymentType,
+        received: this.newReceived,
+        note: this.newNote
       }
     }).then(
       function (response) {
@@ -52,6 +52,16 @@ app.controller('GameController', ['$http', function ($http) {
     }).then(
       function (response) {
         console.log('push new game response: ' + response)
+        controller.newDate = null
+        controller.newTime = null
+        controller.newLocation = null
+        controller.newCompetition = null
+        controller.newHome = null
+        controller.newAway = null
+        controller.newFee = null
+        controller.newPaymentType = null
+        controller.newReceived = null
+        controller.newNote = null
         controller.getUserGames()
       }, function (error) {
           console.log(error)
@@ -129,6 +139,16 @@ app.controller('GameController', ['$http', function ($http) {
     }).then(
       function (response) {
         console.log('response received from replacement: ', response)
+        controller.date = null
+        controller.time = null
+        controller.location = null
+        controller.competition = null
+        controller.home = null
+        controller.away = null
+        controller.fee = null
+        controller.paymentType = null
+        controller.received = null
+        controller.note = null
         controller.getUserGames()
       }, function (error) {
           console.log(error)
@@ -236,4 +256,4 @@ app.controller('GameController', ['$http', function ($http) {
       }
     )
   }
-}]) // close app.controller 
+}]) // close app.controller

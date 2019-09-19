@@ -17,21 +17,20 @@
   <input class="card-buttons" type="submit" value="Logout">
 </form>
 <h3 ng-show="ctrl.loggedInUsername">Create Game Card</h3>
-<!-- create game card form -->
-<form class="create-game-form" ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
-  <input type="text" ng-model="ctrl.date" placeholder="Date"/>
-  <input type="text" ng-model="ctrl.time" placeholder="Time"/>
-  <input type="text" ng-model="ctrl.location" placeholder="Location"/>
-  <input type="text" ng-model="ctrl.competition" placeholder="Competition"/>
-  <input type="text" ng-model="ctrl.home" placeholder="Home"/>
-  <input type="text" ng-model="ctrl.away" placeholder="Away"/>
-  <input type="text" ng-model="ctrl.fee" placeholder="Fee $"/>
-  <input type="text" ng-model="ctrl.paymentType" placeholder="Payment Type"/>
-  <div class="fee-received-checkbox">
-    Fee Received <input type="checkbox" ng-model="ctrl.received"/>
-  </div>
 
-  <input type="textarea" ng-model="ctrl.note" placeholder="Note"/>
+<form class="create-game-form" ng-submit="ctrl.createGame()" ng-if="ctrl.loggedInUsername">
+  <input type="text" ng-model="ctrl.newDate" placeholder="Date"/>
+  <input type="text" ng-model="ctrl.newTime" placeholder="Time"/>
+  <input type="text" ng-model="ctrl.newLocation" placeholder="Location"/>
+  <input type="text" ng-model="ctrl.newCompetition" placeholder="Competition"/>
+  <input type="text" ng-model="ctrl.newHome" placeholder="Home"/>
+  <input type="text" ng-model="ctrl.newAway" placeholder="Away"/>
+  <input type="text" ng-model="ctrl.newFee" placeholder="Fee $"/>
+  <input type="text" ng-model="ctrl.newPaymentType" placeholder="Payment Type"/>
+  <div class="fee-received-checkbox">
+    Fee Received <input type="checkbox" ng-model="ctrl.newReceived"/>
+  </div>
+  <input type="textarea" ng-model="ctrl.newNote" placeholder="Note"/>
   <input class="card-buttons" type="submit" value="Create New Game Card"/>
 </form>
 <br/>
@@ -80,13 +79,8 @@
             <div class="fee-received-checkbox">
               Fee Received <input type="checkbox" ng-model="ctrl.received" placeholder="Received"/>
             </div>
-
-
-
-            <!-- Fee Received:
-            <input type="checkbox" ng-model="ctrl.received" placeholder="Received"/> -->
             <input type="text" ng-model="ctrl.note" placeholder="Note"/>
-            <input type="submit" value="Submit Change">
+            <input class="card-buttons" type="submit" value="Submit Change">
           </form>
           <input class="card-buttons" type="submit" value="Delete Game" ng-click="ctrl.deleteGame(game)">
           </input>
