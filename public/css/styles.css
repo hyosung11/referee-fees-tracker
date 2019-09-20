@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Coda&display=swap');
 
 body {
-  background-color: lightgreen;
+  background-color: rgba(55, 68, 21);
   background-image: url("/images/field-grass-green-47343.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: 66%;
-  background-position-y: 45%;
+  background-position-x: 70%;
+  background-position-y: 10%;
   color: ghostwhite;
   font-family: 'Coda';
 }
@@ -186,7 +186,7 @@ dl {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .card-buttons:hover, .card-buttons:focus {
