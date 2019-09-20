@@ -5,7 +5,7 @@ const express = require('express')
 const router = express.Router()
 const Games = require('../models/game.js')
 
-// GAME CONTROLLER ROUTES
+// game controller routes
 
 // create game
 router.post('/', (req, res) => {

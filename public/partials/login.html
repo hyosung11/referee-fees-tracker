@@ -37,7 +37,6 @@
 
 <div class="games">
   <div class="flip-card" ng-repeat="game in ctrl.games" ng-if="ctrl.loggedInUsername">
-    <!-- <div  class=""> -->
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img class="card-front" src="/images/soccer-ball.jpg" alt="ball">
@@ -57,14 +56,12 @@
             <dt ng-if="!game.received">Fee Received: No</dt>
             <dt>Note: {{game.note}}</dt>
           </dl>
-          <!-- <br/> -->
-            <a
-              href="#"
-              ng-if="$index !== ctrl.indexOfEditFormToShow"
-              ng-click="ctrl.indexOfEditFormToShow = $index">
-              <!-- <h2>Edit Game</h2> -->
-              <input class="card-buttons" type="submit" value="Edit Game">
-            </a>
+          <a
+            href="#"
+            ng-if="$index !== ctrl.indexOfEditFormToShow"
+            ng-click="ctrl.indexOfEditFormToShow = $index">
+            <input class="card-buttons" type="submit" value="Edit Game">
+          </a>
           <form class="create-game-form"
             ng-submit="ctrl.editGame(game)"
             ng-show="$index === ctrl.indexOfEditFormToShow">

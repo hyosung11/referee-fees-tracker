@@ -52,6 +52,7 @@ app.controller('GameController', ['$http', function ($http) {
     }).then(
       function (response) {
         console.log('push new game response: ' + response)
+        // clear the create game card
         controller.newDate = null
         controller.newTime = null
         controller.newLocation = null
@@ -79,11 +80,10 @@ app.controller('GameController', ['$http', function ($http) {
       function (response) {
         controller.games = response.data // set value on success
         console.log('games to be displayed on the page: ')
-
+        // set inital value of fees to 0
         controller.totalEarned = 0
         controller.totalReceived = 0
         controller.totalOwed = 0
-
         for (let i = 0; i < controller.games.length; i++) {
           controller.totalEarned += controller.games[i].fee
           if (controller.games[i].received) {
@@ -139,6 +139,7 @@ app.controller('GameController', ['$http', function ($http) {
     }).then(
       function (response) {
         console.log('response received from replacement: ', response)
+        // clear the edit form after submit
         controller.date = null
         controller.time = null
         controller.location = null
