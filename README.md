@@ -21,6 +21,7 @@ GA SEIR-Stitch Final Project
   - Also, as an upgrade to the user experience, I would like to toggle the colors of the game cards based on whether the referee had been paid for that game from red to green.
 
 5. Notes
-  - I've learned a lot over the thirteen weeks of this course. I look at back at my first project and see how far I've come. Simultaneously, I realize how little I know as I've gotten a broad but shallow introduction to software engineering. As the training wheels come off I eagerly anticipate embracing desired difficulties to build cool stuff. 
+  - I've learned a lot over the thirteen weeks of this course. I look at back at my first project and see how far I've come. Simultaneously, I realize how little I know as I've gotten a broad but shallow introduction to software engineering. As the training wheels come off I eagerly anticipate embracing desired difficulties to build cool stuff.
+  - Consider using multiple controllers.
 
 6. The Referee Fees Tracker link is: http://referee-fees-tracker.herokuapp.com/
